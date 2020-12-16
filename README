@@ -31,20 +31,35 @@ Compile with:
 Translations
 ------------
 
-Extract the translateable strings into messages.pot:
+Extract the translateable strings into new-language.pot:
 
-  $ xgettext -k_ -kN_ -o po/desktop-scroller.pot extension.js prefs.js
+  $ xgettext -k_ -kN_ -o po/new-language.pot extension.js prefs.js
 
-Create a new translation for e.g. swedish:
+Create a new translation for e.g. italian:
 
-  $ LANG=de_DE msginit -i po/desktop-scroller.pot
+  $ LANG=it_IT msginit -i po/italian.pot
 
-Move the resulting file (de.po) into the po/ folder.
+Or edit the file new-language.pot and edit strings in your language
+then save him in (e.g.) italian.pot
+
+Copy italian.pot in it.po
+
+Move the resulting file (it.po) into the po/ folder.
 
 Or update a translation with new strings:
 
-  $ msgmerge -U po/de.po po/desktop-scroller.pot
+  $ msgmerge -U po/it.po po/italian.pot
 
 Finally create a machine readable file:
+(first create the folder with your language code and inside create the folder LC_MESSAGES)
+e.g.
+  $ cd ~/.local/share/gnome-shell/extensions/desktop-scroller@brorlandi/locale
+  $ mkdir it/LC_MESSAGES
 
-  $ msgfmt po/de.po -o locale/de/LC_MESSAGES/desktop-scroller.mo
+  $ msgfmt po/it.po -o locale/it/LC_MESSAGES/desktop-scroller.mo
+
+Make your changes effective:
+ Alt+F2
+ r
+ Enter
+ 
